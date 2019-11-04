@@ -1,0 +1,92 @@
+﻿""" # Module 1:  #Calculate monthly payment with formula: M = L[i(1+i)n] / [(1+i)n-1]
+        #•	M = monthly payment
+        #•	L = Loan amount
+        #•	i = interest rate (for an interest rate of 5%, i = 0.05)
+        #•	n = number of payments
+    
+    
+    L=float(input("Enter Loan Amount : "))
+    n=int(input("Enter no. of years : "))
+    i=float(input("Enter interest rate: "))/100
+    M = L*(i*(1+i)*n) / ((1+i)*n-1)
+    print("Rate in percent",i)
+    print("Montly paymrent is : ",M)
+
+# Module 2: Calculate shipping charges for a shopper
+
+Total_purchased_Amt=float(input("Enter the total purchased amount : $"))
+if Total_purchased_Amt>50:
+    Ship_Charges=10
+    Total_purchased_Amt_Shipping=Total_purchased_Amt+Ship_Charges
+else:
+    Ship_Charges=0
+    Total_purchased_Amt_Shipping=Total_purchased_Amt+Ship_Charges
+print("Total Purchased Amount : ${} \n Shipping Charges : ${} \n Total Amount : ${}".format(Total_purchased_Amt,Ship_Charges,Total_purchased_Amt_Shipping))
+
+# Module: 4 Calculate the total to charge for an order from an online store in Canada
+total_charges=float(input("Enter amount of order : "))
+Country=input("Enter the country : ").capitalize()
+ext_charges=0
+if Country=='Canada':
+    Province = input("Enter province : ").capitalize()
+    if Province=='Alberta':
+        ext_charges=0.05/100*total_charges
+    elif Province=='Ontario'or 'New Brunswick' or 'Nova Scotia':
+        ext_charges=0.13/100*total_charges
+    else:
+        ext_charges=0.06/100+0.05/100*total_charges
+
+print("Order Amount : {} \n Tax Charged : {} \n Total Charges : {}".format(total_charges,ext_charges,total_charges + ext_charges))
+
+# Module 5: Ask the user to enter the names of everyone attending a party
+
+input_string = input("Enter a list attending the party seperated by comma : \n")
+list  = sorted(input_string.split(','),reverse=False)
+
+print("List of members attending the party are below: \n")
+for names in list:
+    print(names)
+
+# Module 6: Create the CSV file below and read it.(Name, Age)
+import csv
+with open ("dff.csv","w") as wr:
+    a=csv.writer(wr,delimiter=',')
+    a.writerow(["Doyle McCarty",27])
+    a.writerow(["Jodi Mills",25])
+    a.writerow(["Nicholas Rose",32])
+    a.writerow(["Kian Goddard",36])
+    a.writerow(["Zuha Hanania",26])
+
+# Module 7: Write code in the function that will write the text to a file with the name specified,
+import csv
+text_to_add=input("Enter the Text to add in the file : ")
+name=input("Enter file name : ")
+filename = "%s.csv" % name
+print(filename)
+print((text_to_add))
+with open(filename,'a') as ap:
+    a=csv.writer(ap)
+    a.writerow([text_to_add])"""
+
+# Module 8: Specify file name if not found add error message.
+
+import csv
+name=input("Enter file name : ")
+try:
+    filename = "%s.csv" % name
+    with open(filename,'r') as rr:
+        a=csv.reader(rr)
+        for b in a:
+            print(b)
+except FileNotFoundError:
+    print("No such filename found")
+
+
+
+
+
+
+
+
+
+
